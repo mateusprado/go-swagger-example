@@ -1,0 +1,27 @@
+---
+resources:
+- name: go-swagger
+  type: git
+  source:
+    uri: https://github.com/mateusprado/go-swagger-example.git
+    branch: master
+
+jobs:
+- name: go-lang-job
+  plan:
+  - task: check
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source:
+          repository: golang
+          tag: 1.11.0-alpine
+      run:
+        path: go
+        args: [version]
+- name: build
+  plan:
+  - get: go-swagger
+  - task: build
+    file: go-swagger/ci/tasks/build.yml
