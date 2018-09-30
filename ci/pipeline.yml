@@ -23,5 +23,6 @@ jobs:
 - name: build
   plan:
   - get: go-swagger
+    trigger: true
   - task: build
     file: go-swagger/ci/tasks/build.yml
