@@ -7,4 +7,4 @@ image_resource:
 inputs: 
 - name: go-swagger
 run:
-  path: ./go-swagger/ci/scritps/build.sh
+  path: ./go-swagger/ci/scripts/build.sh
